@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Brew {
+  id           Int      @id @default(autoincrement())
+  beans        String
+  method       String
+  coffeeGrams  Float
+  waterGrams   Float
+  rating       Int
+  tastingNotes String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
